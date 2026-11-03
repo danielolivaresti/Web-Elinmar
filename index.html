@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingeniería y Servicios Elinmar Ltda. | Chonchi, Chiloé</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            elinmar: { navy: '#010a24', dark: '#03153d', blue: '#071e5c', accent: '#2563eb', light: '#38bdf8' }
+          },
+          fontFamily: { sans: ['Montserrat', 'Roboto', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-elinmar-navy/95 backdrop-blur-md border-b border-blue-900/40 shadow-2xl text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="images/Logo Blanco.png" alt="Elinmar Ltda." class="h-12 w-auto object-contain transition-transform group-hover:scale-105">
+        <div class="leading-none">
+          <span class="text-xl font-black text-white tracking-wider">ELINMAR</span>
+          <span class="block text-[10px] text-blue-400 font-semibold uppercase tracking-widest">LTDA. CHILOÉ</span>
+        </div>
+      </a>
+      <nav class="hidden xl:flex items-center space-x-5 text-sm font-semibold tracking-wide">
+        <a href="index.html" class="fire-nav-link">
+          <span>🔥</span> Inicio <span>🔥</span>
+        </a>
+        <a href="planta.html" class="text-slate-300 hover:text-sky-400 transition-colors">Nuestra Planta</a>
+        <a href="servicios.html" class="text-slate-300 hover:text-sky-400 transition-colors">Servicios</a>
+        <a href="taller.html" class="text-slate-300 hover:text-sky-400 transition-colors">Taller</a>
+        <a href="nosotros.html" class="text-slate-300 hover:text-sky-400 transition-colors">Nosotros</a>
+        <a href="equipo.html" class="text-slate-300 hover:text-sky-400 transition-colors">Equipo</a>
+        <a href="trabaja.html" class="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white px-4 py-2 rounded-xl shadow-lg shadow-blue-600/30 font-bold transition-all">Trabaja con Nosotros</a>
+      </nav>
+      <button id="menu-btn" class="xl:hidden text-slate-300 hover:text-white p-2">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden xl:hidden bg-elinmar-navy border-b border-blue-900/60 px-6 py-6 space-y-4">
+      <a href="index.html" class="fire-nav-link py-1">
+        <span>🔥</span> Inicio <span>🔥</span>
+      </a>
+      <a href="planta.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Nuestra Planta</a>
+      <a href="servicios.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Servicios</a>
+      <a href="taller.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Taller</a>
+      <a href="nosotros.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Nosotros</a>
+      <a href="equipo.html" class="block text-slate-200 font-semibold py-1">Equipo</a>
+      <a href="trabaja.html" class="block text-center bg-blue-600 text-white px-4 py-3 rounded-xl font-bold mt-2 shadow-lg">Trabaja con Nosotros</a>
+    </div>
+  </header>
+
+  <!-- HERO STREAMLINED -->
+  <section class="relative overflow-hidden pt-10 pb-24 lg:pt-16 lg:pb-28 bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 text-white">
+    <div class="absolute inset-0 z-0 opacity-25">
+      <img src="images/ponton3.jpg" alt="Pontón salmonero austral" class="w-full h-full object-cover">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6 text-left">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-900/80 border border-sky-400/40 text-sky-300 text-xs font-bold tracking-wider uppercase shadow-md">
+            ✨ Maestranza y Soluciones Acuícolas en Chiloé
+          </span>
+
+          <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight tracking-tight">
+            Elinmar <br>
+            <span class="text-2xl sm:text-3xl font-normal text-white drop-shadow-sm block mt-2">
+              Fabricación de Plantas de Tratamiento y Maestranza en Acero Inoxidable
+            </span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-white max-w-xl font-medium leading-relaxed drop-shadow">
+            Especialistas en fabricación de acero inoxidable AISI 316L, plantas de tratamiento de aguas negras certificadas (modelo Gema JMWC60) y soporte técnico en alta mar para pontones en la zona austral.
+          </p>
+
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="planta.html" class="bg-blue-600 hover:bg-blue-500 text-white px-7 py-3.5 rounded-xl font-bold shadow-lg shadow-blue-600/30 transition-all text-xs uppercase tracking-wider">
+              Ver Planta de Tratamiento ➔
+            </a>
+            <a href="servicios.html" class="bg-slate-900/90 hover:bg-slate-800 text-slate-200 px-7 py-3.5 rounded-xl font-semibold border border-slate-700 transition-all text-xs uppercase tracking-wider">
+              Nuestros Servicios
+            </a>
+          </div>
+        </div>
+
+        <!-- Flamy Card (Transparent Blue Glassmorphism) -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+          <div id="flamy-card" class="relative bg-blue-600/25 backdrop-blur-md text-white p-8 rounded-3xl border border-blue-400/40 shadow-2xl w-full max-w-md text-center">
+            <div class="w-48 h-56 mx-auto mb-4 relative flex items-center justify-center">
+              <img src="images/flamy-3d.png" alt="Flamy Supervisor Elinmar" class="max-h-full object-contain filter drop-shadow-md floating-mascot">
+            </div>
+            <span class="inline-block bg-blue-600 text-white border border-blue-400/50 px-4 py-1.5 rounded-full text-xs font-bold mb-2 shadow-md">
+              🔥 Mascota Oficial Elinmar
+            </span>
+            <h3 class="text-xl font-black text-white">Flamy · Supervisor Elinmar</h3>
+            <p class="text-xs text-slate-200 mt-1">
+              Orgullo chilote, maestranza de alta precisión y seguridad en alta mar.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN TARJETAS DE ACCESO RÁPIDO -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-blue-600 text-xs font-bold uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full border border-blue-200">
+          Navegación Principal
+        </span>
+        <h2 class="text-3xl font-black text-slate-900 mt-3">Pilares y Áreas de Trabajo</h2>
+        <p class="text-sm text-slate-600 mt-2">Accede rápidamente a nuestras soluciones especializadas para la salmonicultura.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Tarjeta 1: Planta -->
+        <a href="planta.html" class="group bg-white p-8 rounded-3xl border border-slate-200 shadow-lg hover:border-blue-500 transition-all duration-300 hover:scale-110 hover:shadow-2xl flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl font-black mb-4">💧</div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Planta de Tratamiento</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Sistema estanco certificado Gema JMWC60 de 50 Lts/h con vapor limpio, estanque triturador previo y monitoreo desde la oficina.
+            </p>
+          </div>
+          <span class="mt-6 text-xs font-bold text-blue-600 group-hover:translate-x-1 transition-transform inline-block">Conocer más ➔</span>
+        </a>
+
+        <!-- Tarjeta 2: Servicios -->
+        <a href="servicios.html" class="group bg-white p-8 rounded-3xl border border-slate-200 shadow-lg hover:border-blue-500 transition-all duration-300 hover:scale-110 hover:shadow-2xl flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl font-black mb-4">🚢</div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Servicios en Pontones</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Fabricación, montaje en faena y mantención continua de equipos sanitarios en los centros de cultivo australes.
+            </p>
+          </div>
+          <span class="mt-6 text-xs font-bold text-blue-600 group-hover:translate-x-1 transition-transform inline-block">Conocer más ➔</span>
+        </a>
+
+        <!-- Tarjeta 3: Taller -->
+        <a href="taller.html" class="group bg-white p-8 rounded-3xl border border-slate-200 shadow-lg hover:border-blue-500 transition-all duration-300 hover:scale-110 hover:shadow-2xl flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl font-black mb-4">🛠️</div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Taller Chonchi</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Maestranza propia especializada en acero inoxidable AISI 316L y pruebas hidráulicas rigurosas.
+            </p>
+          </div>
+          <span class="mt-6 text-xs font-bold text-blue-600 group-hover:translate-x-1 transition-transform inline-block">Conocer más ➔</span>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-elinmar-navy text-slate-400 text-xs py-5 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-4">
+        <div class="space-y-3 md:col-span-2">
+          <div class="flex items-center gap-3">
+            <img src="images/Logo Blanco.png" alt="Elinmar" class="h-10 w-auto">
+            <span class="text-white font-bold text-base">Ingeniería y Servicios Elinmar Ltda.</span>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+            Especialistas exclusivos en plantas de tratamiento de aguas negras, maestranza especializada y salas técnicas para pontones habitacionales en Chiloé y la zona sur austral.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Enlaces Rápidos</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="planta.html" class="hover:text-sky-400 transition-colors">Nuestra Planta (JMWC60)</a></li>
+            <li><a href="servicios.html" class="hover:text-sky-400 transition-colors">Servicios</a></li>
+            <li><a href="taller.html" class="hover:text-sky-400 transition-colors">Taller</a></li>
+            <li><a href="nosotros.html" class="hover:text-sky-400 transition-colors">Sobre Nosotros</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Contacto Directo</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="equipo.html" class="hover:text-sky-400 transition-colors">Directorio y Encargados</a></li>
+            <li><a href="trabaja.html" class="hover:text-sky-400 transition-colors">Trabaja con Nosotros (CV)</a></li>
+            <li class="text-sky-400 font-semibold">Chonchi, Chiloé, Chile</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-3 pb-1 border-t border-slate-800 text-center text-slate-500 text-[11px]">
+        &copy; 2026 Ingeniería y Servicios Elinmar Ltda. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- CHATBOT -->
+  <div id="elinmar-chatbot" class="fixed bottom-6 right-6 z-50">
+    <button id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-500 text-white shadow-2xl flex items-center justify-center relative transition-transform hover:scale-110 active:scale-95 group">
+      <span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-emerald-400 border-2 border-slate-950 animate-ping"></span>
+      <span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-emerald-400 border-2 border-slate-950"></span>
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+    </button>
+    <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 sm:w-96 bg-slate-950 border border-blue-500/40 rounded-3xl shadow-2xl overflow-hidden flex flex-col backdrop-blur-xl">
+      <div class="bg-gradient-to-r from-blue-900 to-slate-900 p-4 border-b border-blue-800/50 flex items-center justify-between text-white">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-blue-600/30 border border-blue-400/50 flex items-center justify-center text-blue-300 font-black text-sm">🔥</div>
+          <div>
+            <h4 class="text-white font-bold text-sm">Asistente Elinmar Ltda.</h4>
+            <span class="text-[10px] text-emerald-400 font-semibold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> En línea (Chonchi)</span>
+          </div>
+        </div>
+        <button id="chat-close-btn" class="text-slate-400 hover:text-white p-1">✕</button>
+      </div>
+      <div id="chat-messages" class="p-4 h-72 overflow-y-auto space-y-3 text-xs text-slate-300">
+        <div class="bg-slate-900 p-3 rounded-2xl border border-slate-800 max-w-[85%] text-white">
+          ¡Hola! Soy el asistente virtual de <strong>Elinmar Ltda.</strong> ¿En qué puedo ayudarte hoy sobre nuestras plantas de tratamiento Gema JMWC60, pontones o servicios en Chiloé?
+        </div>
+      </div>
+      <div class="p-3 bg-slate-900 border-t border-slate-800 flex gap-2">
+        <input id="chat-input" type="text" placeholder="Escribe tu consulta aquí..." class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500">
+        <button id="chat-send-btn" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
