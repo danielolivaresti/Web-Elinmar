@@ -177,4 +177,49 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  // 8. Barra Deslizante Animada en el Navbar ("Traveling Underline")
+  const navContainer = document.querySelector("header nav");
+  if (navContainer) {
+    navContainer.style.position = "relative";
+    
+    let indicator = navContainer.querySelector("#nav-indicator");
+    if (!indicator) {
+      indicator = document.createElement("div");
+      indicator.id = "nav-indicator";
+      indicator.className = "absolute bottom-0 h-0.5 bg-sky-400 transition-all duration-300 ease-in-out pointer-events-none rounded-full shadow-[0_0_10px_#38bdf8]";
+      navContainer.appendChild(indicator);
+    }
+
+    const navLinks = navContainer.querySelectorAll("a:not([class*='bg-'])");
+    let activeLink = navContainer.querySelector("a.active") || Array.from(navLinks).find(link => {
+      const href = link.getAttribute("href");
+      return window.location.pathname.endsWith(href) || (href === "index.html" && window.location.pathname.endsWith("/"));
+    });
+
+    function moveIndicator(el) {
+      if (!el) return;
+      const navRect = navContainer.getBoundingClientRect();
+      const linkRect = el.getBoundingClientRect();
+      const left = linkRect.left - navRect.left;
+      const width = linkRect.width;
+      indicator.style.left = left + "px";
+      indicator.style.width = width + "px";
+    }
+
+    if (activeLink) {
+      activeLink.classList.add("active");
+      // Animar desde la izquierda al cargar la página para dar el efecto de deslizamiento
+      indicator.style.left = "0px";
+      indicator.style.width = "0px";
+      setTimeout(() => {
+        indicator.style.transition = "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+        moveIndicator(activeLink);
+      }, 50);
+    }
+
+    window.addEventListener("resize", () => {
+      if (activeLink) moveIndicator(activeLink);
+    });
+  }
 });

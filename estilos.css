@@ -181,3 +181,22 @@ img {
   align-items: center;
   gap: 6px;
 }
+
+/* Navbar Link Sliding Underline Animation */
+.nav-link-slide {
+  position: relative;
+}
+.nav-link-slide::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #38bdf8;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-link-slide:hover::after,
+.nav-link-slide.active::after {
+  width: 100%;
+}
