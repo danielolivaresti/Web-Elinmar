@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre Nosotros y Nuestra Historia | Ingeniería y Servicios Elinmar Ltda.</title>
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="images/favicon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,14 +37,14 @@
           <span class="block text-[10px] text-blue-400 font-semibold uppercase tracking-widest">LTDA. CHILOÉ</span>
         </div>
       </a>
-      <nav class="hidden xl:flex items-center space-x-5 text-sm font-semibold tracking-wide">
+      <nav class="hidden xl:flex items-center space-x-6 text-sm font-semibold tracking-wide">
         <a href="index.html" class="text-slate-300 hover:text-sky-400 transition-colors">Inicio</a>
         <a href="planta.html" class="text-slate-300 hover:text-sky-400 transition-colors">Nuestra Planta</a>
         <a href="servicios.html" class="text-slate-300 hover:text-sky-400 transition-colors">Servicios</a>
         <a href="taller.html" class="text-slate-300 hover:text-sky-400 transition-colors">Taller</a>
-        <a href="nosotros.html" class="text-sky-400 transition-colors">Nosotros</a>
+        <a href="nosotros.html" aria-current="page" class="active text-sky-400 transition-colors">Nosotros</a>
         <a href="equipo.html" class="text-slate-300 hover:text-sky-400 transition-colors">Equipo</a>
-        <a href="trabaja.html" class="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white px-4 py-2 rounded-xl shadow-lg shadow-blue-600/30 font-bold transition-all">Trabaja con Nosotros</a>
+        <a href="cotizar.html" class="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white px-4 py-2 rounded-xl shadow-lg shadow-blue-600/30 font-bold transition-all">Cotiza con Nosotros</a>
       </nav>
       <button id="menu-btn" class="xl:hidden text-slate-300 hover:text-white p-2">
         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -52,9 +55,9 @@
       <a href="planta.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Nuestra Planta</a>
       <a href="servicios.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Servicios</a>
       <a href="taller.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Taller</a>
-      <a href="nosotros.html" class="block text-sky-400 font-semibold py-1">Nosotros</a>
+      <a href="nosotros.html" aria-current="page" class="block text-sky-400 font-bold py-1">Nosotros</a>
       <a href="equipo.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Equipo</a>
-      <a href="trabaja.html" class="block text-center bg-blue-600 text-white px-4 py-3 rounded-xl font-bold mt-2 shadow-lg">Trabaja con Nosotros</a>
+      <a href="cotizar.html" class="block text-center bg-blue-600 text-white px-4 py-3 rounded-xl font-bold mt-2 shadow-lg">Cotiza con Nosotros</a>
     </div>
   </header>
 
@@ -131,11 +134,66 @@
             <a href="equipo.html" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-xl font-bold shadow-lg shadow-blue-600/30 transition-all text-xs uppercase tracking-wider">
               Contactar al Directorio ➔
             </a>
-            <a href="trabaja.html" class="bg-slate-900 hover:bg-slate-800 text-slate-200 px-7 py-3.5 rounded-xl font-semibold border border-slate-700 transition-all text-xs uppercase tracking-wider">
+            <a href="#unete" class="bg-slate-900 hover:bg-slate-800 text-slate-200 px-7 py-3.5 rounded-xl font-semibold border border-slate-700 transition-all text-xs uppercase tracking-wider">
               Únete a Nuestro Equipo
             </a>
           </div>
         </div>
+      </div>
+
+      <!-- SECCIÓN ENVÍO DE CV (ÚNETE A NUESTRO EQUIPO) -->
+      <div id="unete" class="bg-slate-900 border border-slate-800 p-8 sm:p-12 rounded-3xl shadow-2xl">
+        <div class="text-center mb-10">
+          <span class="text-sky-400 text-xs font-bold uppercase tracking-widest bg-blue-950 px-4 py-1.5 rounded-full border border-sky-800">Oportunidades Laborales en Chiloé</span>
+          <h3 class="text-2xl sm:text-4xl font-black text-white mt-4">Forma Parte de Nuestro Equipo</h3>
+          <p class="text-slate-300 text-sm sm:text-base mt-2">
+            Buscamos talentos comprometidos para nuestras áreas técnicas, operativas, administrativas y de logística en Chonchi.
+          </p>
+        </div>
+
+        <form id="cv-form" class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Nombre Completo</label>
+              <input type="text" required placeholder="Ej: Juan Pérez" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Teléfono / WhatsApp</label>
+              <input type="tel" required placeholder="+56 9 1234 5678" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Correo Electrónico</label>
+              <input type="email" required placeholder="correo@ejemplo.cl" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Área o Puesto de Interés</label>
+              <select class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+                <option value="rrhh">Recursos Humanos</option>
+                <option value="administracion">Administración y Finanzas</option>
+                <option value="logistica">Logística y Abastecimiento</option>
+                <option value="soldador">Soldador TIG / Inoxidable (Taller Chonchi)</option>
+                <option value="mecanico">Mecánico de Mantención en Pontones</option>
+                <option value="electrico">Técnico Electricista / Automatización</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Adjuntar Currículum (PDF / DOCX)</label>
+            <input type="file" required class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-blue-600 file:text-white hover:file:bg-blue-500 cursor-pointer">
+          </div>
+
+          <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white font-bold py-4 rounded-xl shadow-xl shadow-blue-600/35 transition-all text-sm uppercase tracking-wider">
+            Enviar Postulación
+          </button>
+
+          <div id="cv-success" class="hidden p-4 rounded-xl bg-emerald-950 border border-emerald-500/50 text-emerald-300 text-xs text-center font-semibold">
+            ¡CV enviado exitosamente! Nuestro departamento de recursos humanos en Chonchi lo revisará a la brevedad.
+          </div>
+        </form>
       </div>
 
     </div>
@@ -167,7 +225,7 @@
           <h4 class="text-white font-bold text-sm mb-3">Contacto Directo</h4>
           <ul class="space-y-2 text-xs">
             <li><a href="equipo.html" class="hover:text-sky-400 transition-colors">Directorio y Encargados</a></li>
-            <li><a href="trabaja.html" class="hover:text-sky-400 transition-colors">Trabaja con Nosotros (CV)</a></li>
+            <li><a href="cotizar.html" class="hover:text-sky-400 transition-colors">Cotiza con Nosotros</a></li>
             <li class="text-sky-400 font-semibold">Chonchi, Chiloé, Chile</li>
           </ul>
         </div>

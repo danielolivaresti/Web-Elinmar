@@ -182,21 +182,19 @@ img {
   gap: 6px;
 }
 
-/* Navbar Link Sliding Underline Animation */
-.nav-link-slide {
+/* Línea del navbar: marca la página actual y se desliza a la que se hace click */
+header nav {
   position: relative;
 }
-.nav-link-slide::after {
-  content: '';
+.nav-indicator {
   position: absolute;
   bottom: -4px;
-  left: 0;
-  width: 0%;
+  margin: 0 !important; /* space-x-* de Tailwind también afecta a este elemento */
   height: 2px;
   background: #38bdf8;
-  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 9999px;
+  pointer-events: none;
 }
-.nav-link-slide:hover::after,
-.nav-link-slide.active::after {
-  width: 100%;
+.nav-indicator.is-sliding {
+  transition: left 0.45s cubic-bezier(0.65, 0, 0.35, 1), width 0.45s cubic-bezier(0.65, 0, 0.35, 1);
 }

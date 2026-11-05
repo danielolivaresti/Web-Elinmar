@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ingeniería y Servicios Elinmar Ltda. | Chonchi, Chiloé</title>
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="images/favicon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,33 +38,35 @@
         </div>
       </a>
       <nav class="hidden xl:flex items-center space-x-6 text-sm font-semibold tracking-wide">
-        <a href="index.html" class="nav-link-slide active text-sky-400 font-bold">Inicio</a>
-        <a href="planta.html" class="nav-link-slide text-slate-300 hover:text-sky-400 transition-colors">Nuestra Planta</a>
-        <a href="servicios.html" class="nav-link-slide text-slate-300 hover:text-sky-400 transition-colors">Servicios</a>
-        <a href="taller.html" class="nav-link-slide text-slate-300 hover:text-sky-400 transition-colors">Taller</a>
-        <a href="nosotros.html" class="nav-link-slide text-slate-300 hover:text-sky-400 transition-colors">Nosotros</a>
-        <a href="equipo.html" class="nav-link-slide text-slate-300 hover:text-sky-400 transition-colors">Equipo</a>
-        <a href="trabaja.html" class="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white px-4 py-2 rounded-xl shadow-lg shadow-blue-600/30 font-bold transition-all">Trabaja con Nosotros</a>
+        <a href="index.html" aria-current="page" class="active text-sky-400 transition-colors">Inicio</a>
+        <a href="planta.html" class="text-slate-300 hover:text-sky-400 transition-colors">Nuestra Planta</a>
+        <a href="servicios.html" class="text-slate-300 hover:text-sky-400 transition-colors">Servicios</a>
+        <a href="taller.html" class="text-slate-300 hover:text-sky-400 transition-colors">Taller</a>
+        <a href="nosotros.html" class="text-slate-300 hover:text-sky-400 transition-colors">Nosotros</a>
+        <a href="equipo.html" class="text-slate-300 hover:text-sky-400 transition-colors">Equipo</a>
+        <a href="cotizar.html" class="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white px-4 py-2 rounded-xl shadow-lg shadow-blue-600/30 font-bold transition-all">Cotiza con Nosotros</a>
       </nav>
       <button id="menu-btn" class="xl:hidden text-slate-300 hover:text-white p-2">
         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
       </button>
     </div>
     <div id="mobile-menu" class="hidden xl:hidden bg-elinmar-navy border-b border-blue-900/60 px-6 py-6 space-y-4">
-      <a href="index.html" class="block text-blue-400 font-bold py-1">Inicio</a>
+      <a href="index.html" aria-current="page" class="block text-sky-400 font-bold py-1">Inicio</a>
       <a href="planta.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Nuestra Planta</a>
       <a href="servicios.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Servicios</a>
       <a href="taller.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Taller</a>
       <a href="nosotros.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Nosotros</a>
-      <a href="equipo.html" class="block text-slate-200 font-semibold py-1">Equipo</a>
-      <a href="trabaja.html" class="block text-center bg-blue-600 text-white px-4 py-3 rounded-xl font-bold mt-2 shadow-lg">Trabaja con Nosotros</a>
+      <a href="equipo.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Equipo</a>
+      <a href="cotizar.html" class="block text-center bg-blue-600 text-white px-4 py-3 rounded-xl font-bold mt-2 shadow-lg">Cotiza con Nosotros</a>
     </div>
   </header>
 
   <!-- HERO STREAMLINED -->
   <section class="relative overflow-hidden pt-10 pb-24 lg:pt-16 lg:pb-28 bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 text-white">
     <div class="absolute inset-0 z-0 opacity-25">
-      <img src="images/ponton3.jpg" alt="Pontón salmonero austral" class="w-full h-full object-cover">
+      <video autoplay muted loop playsinline class="w-full h-full object-cover">
+        <source src="images/background-video.mp4" type="video/mp4">
+      </video>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -70,18 +75,18 @@
         
         <div class="lg:col-span-7 space-y-6 text-left">
           <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-900/80 border border-sky-400/40 text-sky-300 text-xs font-bold tracking-wider uppercase shadow-md">
-            ✨ Ingeniería y Servicios Industriales en Chiloé
+            ✨ Servicios Industriales en Chiloé
           </span>
 
-          <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight tracking-tight">
-            Ingeniería y Servicios Elinmar Ltda. <br>
-            <span class="text-xl sm:text-2xl font-medium text-sky-300 drop-shadow-sm block mt-3">
-              Innovación, Maestranza y Tratamiento de Aguas para la Industria Acuícola
+          <h1 class="font-black text-white leading-tight tracking-tight">
+            <span class="text-3xl sm:text-5xl block">Elinmar Ltda.</span>
+            <span class="text-lg sm:text-xl font-medium text-sky-300 drop-shadow-sm block mt-3">
+              Ingeniería, Maestranza y Tratamiento de Aguas
             </span>
           </h1>
 
           <p class="text-base sm:text-lg text-slate-200 max-w-xl font-normal leading-relaxed drop-shadow">
-            <strong>Somos una empresa líder en la zona austral</strong> especializada en la fabricación de plantas de tratamiento de aguas negras certificadas (modelo Jema JMWC60), ingeniería en acero inoxidable AISI 316L y soporte técnico electromecánico en alta mar para pontones y centros de cultivo.
+            Fabricamos plantas de tratamiento certificadas (Jema JMWC60), desarrollamos maestranza en acero inoxidable AISI 316L y brindamos soporte electromecánico en alta mar para centros acuícolas.
           </p>
 
           <div class="flex flex-wrap gap-4 pt-2">
@@ -96,7 +101,7 @@
 
         <!-- Flamy Card (Transparent Blue Glassmorphism) -->
         <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
-          <div id="flamy-card" class="relative bg-blue-600/25 backdrop-blur-md text-white p-8 rounded-3xl border border-blue-400/40 shadow-2xl w-full max-w-md text-center">
+          <div id="flamy-card" class="relative bg-blue-600/25 backdrop-blur-md text-white py-8 px-5 rounded-3xl border border-blue-400/40 shadow-2xl w-full max-w-md text-center">
             <div class="w-48 h-56 mx-auto mb-4 relative flex items-center justify-center">
               <img src="images/flamy-3d.png" alt="Flamy Supervisor Elinmar" class="max-h-full object-contain filter drop-shadow-md floating-mascot">
             </div>
@@ -104,9 +109,6 @@
               🔥 Mascota Oficial Elinmar
             </span>
             <h3 class="text-xl font-black text-white">Flamy · Supervisor Elinmar</h3>
-            <p class="text-xs text-slate-200 mt-1">
-              Orgullo chilote, maestranza de alta precisión y seguridad en alta mar.
-            </p>
           </div>
         </div>
 
@@ -196,7 +198,7 @@
           <h4 class="text-white font-bold text-sm mb-3">Contacto Directo</h4>
           <ul class="space-y-2 text-xs">
             <li><a href="equipo.html" class="hover:text-sky-400 transition-colors">Directorio y Encargados</a></li>
-            <li><a href="trabaja.html" class="hover:text-sky-400 transition-colors">Trabaja con Nosotros (CV)</a></li>
+            <li><a href="cotizar.html" class="hover:text-sky-400 transition-colors">Cotiza con Nosotros</a></li>
             <li class="text-sky-400 font-semibold">Chonchi, Chiloé, Chile</li>
           </ul>
         </div>

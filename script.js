@@ -178,48 +178,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 8. Barra Deslizante Animada en el Navbar ("Traveling Underline")
-  const navContainer = document.querySelector("header nav");
-  if (navContainer) {
-    navContainer.style.position = "relative";
-    
-    let indicator = navContainer.querySelector("#nav-indicator");
-    if (!indicator) {
-      indicator = document.createElement("div");
-      indicator.id = "nav-indicator";
-      indicator.className = "absolute bottom-0 h-0.5 bg-sky-400 transition-all duration-300 ease-in-out pointer-events-none rounded-full shadow-[0_0_10px_#38bdf8]";
-      navContainer.appendChild(indicator);
-    }
+  // 8. Línea del Navbar: marca la página actual y se desliza a la que se hace click
+  const header = document.querySelector("header");
+  const navContainer = header && header.querySelector("nav");
 
-    const navLinks = navContainer.querySelectorAll("a:not([class*='bg-'])");
-    let activeLink = navContainer.querySelector("a.active") || Array.from(navLinks).find(link => {
-      const href = link.getAttribute("href");
-      return window.location.pathname.endsWith(href) || (href === "index.html" && window.location.pathname.endsWith("/"));
+  if (navContainer) {
+    const SLIDE_MS = 450; // Debe coincidir con la transición de .nav-indicator en estilos.css
+    const navLinks = Array.from(navContainer.querySelectorAll("a"));
+    const activeLink = navContainer.querySelector("a.active");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let navigationTimer;
+
+    const indicator = document.createElement("span");
+    indicator.className = "nav-indicator";
+    indicator.setAttribute("aria-hidden", "true");
+    navContainer.appendChild(indicator);
+
+    const placeIndicator = (link) => {
+      if (!link) return;
+      indicator.style.left = link.offsetLeft + "px";
+      indicator.style.width = link.offsetWidth + "px";
+    };
+
+    const resetIndicator = () => {
+      indicator.classList.remove("is-sliding");
+      placeIndicator(activeLink);
+    };
+
+    resetIndicator();
+
+    // Las fuentes y Tailwind (CDN) cambian el ancho del menú después de cargar
+    new ResizeObserver(resetIndicator).observe(navContainer);
+
+    // Al volver con el botón "Atrás" la página se restaura con la línea en el destino
+    window.addEventListener("pageshow", (e) => {
+      if (e.persisted) resetIndicator();
     });
 
-    function moveIndicator(el) {
-      if (!el) return;
-      const navRect = navContainer.getBoundingClientRect();
-      const linkRect = el.getBoundingClientRect();
-      const left = linkRect.left - navRect.left;
-      const width = linkRect.width;
-      indicator.style.left = left + "px";
-      indicator.style.width = width + "px";
-    }
+    header.addEventListener("click", (e) => {
+      const clicked = e.target.closest("a[href]");
+      if (!clicked || clicked.closest("#mobile-menu")) return;
 
-    if (activeLink) {
-      activeLink.classList.add("active");
-      // Animar desde la izquierda al cargar la página para dar el efecto de deslizamiento
-      indicator.style.left = "0px";
-      indicator.style.width = "0px";
-      setTimeout(() => {
-        indicator.style.transition = "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
-        moveIndicator(activeLink);
-      }, 50);
-    }
+      // Incluye el logo, que lleva a Inicio
+      const target = navLinks.find(link => link.getAttribute("href") === clicked.getAttribute("href"));
+      const opensElsewhere = e.ctrlKey || e.metaKey || e.shiftKey || e.altKey;
+      if (!target || target === activeLink || opensElsewhere) return;
+      if (reduceMotion.matches || navContainer.offsetWidth === 0) return;
 
-    window.addEventListener("resize", () => {
-      if (activeLink) moveIndicator(activeLink);
+      e.preventDefault();
+      indicator.classList.add("is-sliding");
+      placeIndicator(target);
+
+      clearTimeout(navigationTimer);
+      navigationTimer = setTimeout(() => {
+        window.location.href = clicked.href;
+      }, SLIDE_MS);
     });
   }
 });
