@@ -42,11 +42,10 @@
         <a href="index.html" class="text-slate-300 hover:text-sky-400 transition-colors">Inicio</a>
         <a href="planta.html" class="text-slate-300 hover:text-sky-400 transition-colors">Nuestra Planta</a>
         <a href="servicios.html" aria-current="page" class="active text-sky-400 transition-colors">Servicios</a>
-        <a href="taller.html" class="text-slate-300 hover:text-sky-400 transition-colors">Taller</a>
         <a href="nosotros.html" class="text-slate-300 hover:text-sky-400 transition-colors">Nosotros</a>
         <a href="clientes.html" class="text-slate-300 hover:text-sky-400 transition-colors">Clientes</a>
         <a href="equipo.html" class="text-slate-300 hover:text-sky-400 transition-colors">Equipo</a>
-        <a href="cotizar.html" class="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white px-4 py-2 rounded-xl shadow-lg shadow-blue-600/30 font-bold transition-all">Cotiza con Nosotros</a>
+        <a href="cotizar.html" class="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white px-4 py-2 rounded-xl shadow-lg shadow-blue-600/30 font-bold btn-press">Cotiza con Nosotros</a>
       </nav>
       <button id="menu-btn" class="xl:hidden text-slate-300 hover:text-white p-2">
         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -56,7 +55,6 @@
       <a href="index.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Inicio</a>
       <a href="planta.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Nuestra Planta</a>
       <a href="servicios.html" aria-current="page" class="block text-sky-400 font-bold py-1">Servicios</a>
-      <a href="taller.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Taller</a>
       <a href="nosotros.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Nosotros</a>
       <a href="clientes.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Clientes</a>
       <a href="equipo.html" class="block text-slate-200 hover:text-sky-400 font-semibold py-1">Equipo</a>
@@ -68,7 +66,7 @@
   <section class="pt-12 pb-20 bg-white text-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="text-center max-w-3xl mx-auto mb-16 hero-enter">
         <span class="text-blue-600 text-xs font-bold uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full border border-blue-200">
           Proceso Integral en Alta Mar
         </span>
@@ -83,12 +81,12 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- Pillar 1: Creación en Taller -->
-        <div class="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-lg flex flex-col hover:border-blue-500 transition-all">
+        <div class="group card-lift bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-lg flex flex-col" data-reveal>
           <div class="relative h-64 overflow-hidden bg-slate-100">
             <img 
               src="images/equipo-flamy-taller.webp" 
               alt="Equipo Flamy en taller industrial" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              class="w-full h-full object-cover card-lift__img"
             >
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-80"></div>
             <span class="absolute top-4 left-4 bg-blue-600 text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-md">
@@ -110,12 +108,12 @@
         </div>
 
         <!-- Pillar 2: Instalación en Pontón -->
-        <div class="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-lg flex flex-col hover:border-blue-500 transition-all">
+        <div class="group card-lift bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-lg flex flex-col" data-reveal>
           <div class="relative h-64 overflow-hidden bg-slate-100">
             <img 
               src="images/instalacion-ponton.webp" 
               alt="Instalación marina de máquina Elinmar" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              class="w-full h-full object-cover card-lift__img"
             >
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-80"></div>
             <span class="absolute top-4 left-4 bg-blue-600 text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-md">
@@ -137,12 +135,12 @@
         </div>
 
         <!-- Pillar 3: Mantenciones -->
-        <div class="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-xl flex flex-col hover:border-blue-500 transition-all">
+        <div class="group card-lift bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-xl flex flex-col" data-reveal>
           <div class="relative h-64 overflow-hidden bg-slate-100">
             <img 
               src="images/mantenimiento-industrial.webp" 
               alt="Mantenimiento industrial con mascotas Elinmar" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              class="w-full h-full object-cover card-lift__img"
             >
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-80"></div>
             <span class="absolute top-4 left-4 bg-blue-600 text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-md">
@@ -168,6 +166,60 @@
     </div>
   </section>
 
+  <!-- TALLER CHONCHI -->
+  <section id="taller" class="py-20 bg-slate-50 border-t border-slate-200 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-5 flex flex-col items-center justify-center order-2 lg:order-1">
+          <div class="bg-gradient-to-b from-blue-950 to-slate-950 p-8 rounded-3xl border border-blue-200 shadow-lg text-center w-full max-w-sm">
+            <div class="w-48 h-56 mx-auto mb-4 relative flex items-center justify-center">
+              <img src="images/flammy-cambio-face-PNG.webp" alt="Flamy Soldador Maestranza Elinmar" class="max-h-full object-contain filter drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)] floating-mascot">
+            </div>
+            <span class="bg-blue-600 text-white text-[11px] font-black uppercase tracking-widest px-3 py-1 rounded-full">
+              Maestranza Propia
+            </span>
+            <h4 class="text-lg font-black text-white mt-2">Fabricación 100% en Chonchi</h4>
+            <p class="text-xs text-slate-300 mt-1">Corte, conformado, soldadura TIG y armado eléctrico íntegramente realizado por nuestro equipo chilote.</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
+          <span class="text-blue-600 text-xs font-bold uppercase tracking-widest">Nuestra Casa Matriz</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            Taller y Maestranza en Chonchi, Chiloé
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            En <strong>Ingeniería y Servicios Elinmar Ltda.</strong> no dependemos de importaciones ni de terceros para construir nuestras plantas. Cada estanque, ducto de soplado y sistema de dosificación es fabricado, ensamblado y probado directamente en nuestro taller ubicado en Chonchi.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200" data-reveal>
+              <h5 class="text-sm font-bold text-slate-900 mb-1">Soldadura Calificada TIG / MIG</h5>
+              <p class="text-xs text-slate-500">Especialistas en acero inoxidable AISI 304 y 316L con terminaciones sanitarias libres de porosidades.</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200" data-reveal>
+              <h5 class="text-sm font-bold text-slate-900 mb-1">Pruebas Hidráulicas en Taller</h5>
+              <p class="text-xs text-slate-500">Antes de su despacho al pontón, cada máquina se llena y calibra para certificar estanqueidad al 100%.</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200" data-reveal>
+              <h5 class="text-sm font-bold text-slate-900 mb-1">Integración de Tableros Eléctricos</h5>
+              <p class="text-xs text-slate-500">Montaje de protecciones Schneider / Siemens y programación de relés lógicos para faenas marinas.</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200" data-reveal>
+              <h5 class="text-sm font-bold text-slate-900 mb-1">Mantención en Terreno</h5>
+              <p class="text-xs text-slate-500">Traslados programados hacia los pontones para recambio de difusores, sopladores y cloradores.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
   <!-- FOOTER -->
   <footer class="bg-elinmar-navy text-slate-400 text-xs py-5 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -186,7 +238,7 @@
           <ul class="space-y-2 text-xs">
             <li><a href="planta.html" class="hover:text-sky-400 transition-colors">Nuestra Planta (JMWC60)</a></li>
             <li><a href="servicios.html" class="hover:text-sky-400 transition-colors">Servicios</a></li>
-            <li><a href="taller.html" class="hover:text-sky-400 transition-colors">Taller</a></li>
+            <li><a href="servicios.html#taller" class="hover:text-sky-400 transition-colors">Taller y Maestranza</a></li>
             <li><a href="nosotros.html" class="hover:text-sky-400 transition-colors">Sobre Nosotros</a></li>
             <li><a href="clientes.html" class="hover:text-sky-400 transition-colors">Nuestros Clientes</a></li>
           </ul>
@@ -210,7 +262,6 @@
   <!-- CHATBOT -->
   <div id="elinmar-chatbot" class="fixed bottom-6 right-6 z-50">
     <button id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-500 text-white shadow-2xl flex items-center justify-center relative transition-transform hover:scale-110 active:scale-95 group">
-      <span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-emerald-400 border-2 border-slate-950 animate-ping"></span>
       <span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-emerald-400 border-2 border-slate-950"></span>
       <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
     </button>
@@ -232,7 +283,7 @@
       </div>
       <div class="p-3 bg-slate-900 border-t border-slate-800 flex gap-2">
         <input id="chat-input" type="text" placeholder="Escribe tu consulta aquí..." class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500">
-        <button id="chat-send-btn" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all">Enviar</button>
+        <button id="chat-send-btn" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl text-xs font-bold btn-press">Enviar</button>
       </div>
     </div>
   </div>
