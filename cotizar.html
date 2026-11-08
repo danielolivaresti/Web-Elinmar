@@ -26,7 +26,7 @@
     }
   </script>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white">
+<body class="bg-gradient-to-br from-slate-50 via-blue-50/50 to-slate-100 text-slate-800 font-sans antialiased selection:bg-blue-600 selection:text-white">
 
   <!-- NAVBAR -->
   <header class="sticky top-0 z-50 bg-elinmar-navy/95 backdrop-blur-md border-b border-blue-900/40 shadow-2xl">
@@ -63,18 +63,18 @@
   </header>
 
   <!-- SECCIÓN COTIZACIÓN DE MÁQUINAS Y EQUIPAMIENTO -->
-  <section class="pt-12 pb-20 bg-slate-950 text-slate-100 border-t border-slate-800 relative">
+  <section class="pt-12 pb-20 bg-slate-50 text-slate-800 border-t border-slate-200 relative">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center mb-12">
-        <span class="text-sky-400 text-xs font-bold uppercase tracking-widest bg-blue-950 px-4 py-1.5 rounded-full border border-sky-800">Soluciones Industriales en Chiloé</span>
-        <h2 class="text-3xl sm:text-5xl font-black text-white mt-4">Cotiza Tu Planta o Equipamiento</h2>
-        <p class="text-slate-300 text-sm sm:text-base mt-3 max-w-2xl mx-auto">
+        <span class="text-blue-600 text-xs font-bold uppercase tracking-widest bg-blue-100 px-4 py-1.5 rounded-full border border-blue-200">Soluciones Industriales en Chiloé</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 mt-4">Cotiza Tu Planta o Equipamiento</h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-3 max-w-2xl mx-auto">
           Diseñamos y fabricamos plantas de tratamiento de aguas negras certificadas (modelo Jema JMWC60), estructuras en acero inoxidable AISI 316L y salas técnicas a la medida para centros acuícolas y pontones.
         </p>
       </div>
 
-      <div class="bg-slate-900 border border-slate-800 p-8 sm:p-12 rounded-3xl shadow-2xl">
+      <div class="bg-white border border-slate-200 p-8 sm:p-12 rounded-3xl shadow-lg">
         <form id="quote-form" class="space-y-6" action="https://formsubmit.co/daniel.olivares@elinmar.cl" method="POST" data-ajax="true">
           <input type="hidden" name="_subject" value="Nueva solicitud de cotización - Web Elinmar">
           <input type="hidden" name="_template" value="table">
@@ -82,23 +82,23 @@
           
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Nombre o Razón Social</label>
-              <input type="text" name="Nombre o razón social" required placeholder="Ej: Naviera / Salmonera SpA" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+              <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Nombre o Razón Social</label>
+              <input type="text" name="Nombre o razón social" required placeholder="Ej: Naviera / Salmonera SpA" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-sky-500 transition-colors">
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Teléfono / WhatsApp de Contacto</label>
-              <input type="tel" name="Teléfono" required placeholder="+56 9 1234 5678" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+              <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Teléfono / WhatsApp de Contacto</label>
+              <input type="tel" name="Teléfono" required placeholder="+56 9 1234 5678" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-sky-500 transition-colors">
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Correo Electrónico Corporativo</label>
-              <input type="email" name="email" required placeholder="contacto@empresa.cl" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+              <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Correo Electrónico Corporativo</label>
+              <input type="email" name="email" required placeholder="contacto@empresa.cl" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-sky-500 transition-colors">
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Tipo de Máquina / Requerimiento</label>
-              <select name="Requerimiento" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+              <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Tipo de Máquina / Requerimiento</label>
+              <select name="Requerimiento" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-sky-500 transition-colors">
                 <option value="Planta Jema JMWC60">Planta de Tratamiento Jema JMWC60</option>
                 <option value="Maestranza AISI 316L">Maestranza en Acero Inoxidable AISI 316L</option>
                 <option value="Sala técnica / Pontón">Sala Técnica / Equipamiento para Pontón</option>
@@ -110,27 +110,27 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Capacidad / Tripulación Estimada</label>
-              <input type="text" name="Capacidad o tripulación" placeholder="Ej: Pontón para 20-30 personas" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+              <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Capacidad / Tripulación Estimada</label>
+              <input type="text" name="Capacidad o tripulación" placeholder="Ej: Pontón para 20-30 personas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-sky-500 transition-colors">
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Ubicación del Centro / Proyecto</label>
-              <input type="text" name="Ubicación" placeholder="Ej: Canal Dalcahue / Chonchi, Chiloé" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+              <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Ubicación del Centro / Proyecto</label>
+              <input type="text" name="Ubicación" placeholder="Ej: Canal Dalcahue / Chonchi, Chiloé" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-sky-500 transition-colors">
             </div>
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Detalles Técnicos o Requerimientos Específicos</label>
-            <textarea name="Detalles" rows="4" placeholder="Describa brevemente las especificaciones técnicas, normativas o plazos estimados..." class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition-colors"></textarea>
+            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Detalles Técnicos o Requerimientos Específicos</label>
+            <textarea name="Detalles" rows="4" placeholder="Describa brevemente las especificaciones técnicas, normativas o plazos estimados..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-sky-500 transition-colors"></textarea>
           </div>
 
           <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white font-bold py-4 rounded-xl shadow-xl shadow-blue-600/35 transition-all text-sm uppercase tracking-wider">
             Solicitar Cotización Formal
           </button>
 
-          <div id="quote-error" class="hidden p-4 rounded-xl bg-red-950 border border-red-500/50 text-red-300 text-xs text-center font-semibold"></div>
+          <div id="quote-error" class="hidden p-4 rounded-xl bg-red-50 border border-red-300 text-red-700 text-xs text-center font-semibold"></div>
 
-          <div id="quote-success" class="hidden p-4 rounded-xl bg-emerald-950 border border-emerald-500/50 text-emerald-300 text-xs text-center font-semibold">
+          <div id="quote-success" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-700 text-xs text-center font-semibold">
             ¡Cotización solicitada exitosamente! Nuestro equipo de ingeniería en Chonchi se pondrá en contacto con usted a la brevedad para enviar la propuesta técnica y comercial.
           </div>
 

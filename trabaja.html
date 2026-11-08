@@ -26,7 +26,7 @@
     }
   </script>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white">
+<body class="bg-gradient-to-br from-slate-50 via-blue-50/50 to-slate-100 text-slate-800 font-sans antialiased selection:bg-blue-600 selection:text-white">
 
   <!-- NAVBAR -->
   <header class="sticky top-0 z-50 bg-elinmar-navy/95 backdrop-blur-md border-b border-blue-900/40 shadow-2xl">
@@ -63,18 +63,18 @@
   </header>
 
   <!-- SECCIÓN TRABAJA CON NOSOTROS -->
-  <section class="pt-12 pb-20 bg-slate-950 text-slate-100 border-t border-slate-800 relative">
+  <section class="pt-12 pb-20 bg-slate-50 text-slate-800 border-t border-slate-200 relative">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center mb-12">
-        <span class="text-sky-400 text-xs font-bold uppercase tracking-widest bg-blue-950 px-4 py-1.5 rounded-full border border-sky-800">Oportunidades Laborales en Chiloé</span>
-        <h2 class="text-3xl sm:text-5xl font-black text-white mt-4">Forma Parte de Nuestro Equipo</h2>
-        <p class="text-slate-300 text-sm sm:text-base mt-3">
+        <span class="text-blue-600 text-xs font-bold uppercase tracking-widest bg-blue-100 px-4 py-1.5 rounded-full border border-blue-200">Oportunidades Laborales en Chiloé</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 mt-4">Forma Parte de Nuestro Equipo</h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-3">
           Buscamos talentos comprometidos para nuestras áreas técnicas, operativas, administrativas, de recursos humanos y logística en Chonchi.
         </p>
       </div>
 
-      <div class="bg-slate-900 border border-slate-800 p-8 sm:p-12 rounded-3xl shadow-2xl">
+      <div class="bg-white border border-slate-200 p-8 sm:p-12 rounded-3xl shadow-lg">
         <form id="cv-form" class="space-y-6" action="https://formsubmit.co/daniel.olivares@elinmar.cl" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="_subject" value="Nueva postulación (CV) - Web Elinmar">
           <input type="hidden" name="_template" value="table">
@@ -83,23 +83,23 @@
           
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Nombre Completo</label>
-              <input type="text" name="Nombre" required placeholder="Ej: Juan Pérez" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+              <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Nombre Completo</label>
+              <input type="text" name="Nombre" required placeholder="Ej: Juan Pérez" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-sky-500 transition-colors">
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Teléfono / WhatsApp</label>
-              <input type="tel" name="Teléfono" required placeholder="+56 9 1234 5678" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+              <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Teléfono / WhatsApp</label>
+              <input type="tel" name="Teléfono" required placeholder="+56 9 1234 5678" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-sky-500 transition-colors">
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Correo Electrónico</label>
-              <input type="email" name="email" required placeholder="correo@ejemplo.cl" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+              <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Correo Electrónico</label>
+              <input type="email" name="email" required placeholder="correo@ejemplo.cl" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-sky-500 transition-colors">
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Área o Puesto de Interés</label>
-              <select name="Área de interés" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+              <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Área o Puesto de Interés</label>
+              <select name="Área de interés" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-sky-500 transition-colors">
                 <option>Recursos Humanos</option>
                 <option>Administración y Finanzas</option>
                 <option>Logística y Abastecimiento</option>
@@ -111,15 +111,15 @@
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Adjuntar Currículum (PDF / DOCX)</label>
-            <input type="file" name="attachment" accept=".pdf,.doc,.docx" required class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-blue-600 file:text-white hover:file:bg-blue-500 cursor-pointer">
+            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Adjuntar Currículum (PDF / DOCX)</label>
+            <input type="file" name="attachment" accept=".pdf,.doc,.docx" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-blue-600 file:text-white hover:file:bg-blue-500 cursor-pointer">
           </div>
 
           <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white font-bold py-4 rounded-xl shadow-xl shadow-blue-600/35 transition-all text-sm uppercase tracking-wider">
             Enviar Postulación
           </button>
 
-          <div id="cv-success" class="hidden p-4 rounded-xl bg-emerald-950 border border-emerald-500/50 text-emerald-300 text-xs text-center font-semibold">
+          <div id="cv-success" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-700 text-xs text-center font-semibold">
             ¡CV enviado exitosamente! Nuestro departamento de recursos humanos en Chonchi lo revisará a la brevedad.
           </div>
 

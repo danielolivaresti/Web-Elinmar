@@ -144,8 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const isAlreadyActive = card.classList.contains("ring-2");
 
       contactCards.forEach(c => {
-        c.classList.remove("scale-105", "z-20", "shadow-2xl", "ring-2", "ring-blue-500", "bg-slate-900");
-        c.classList.add("bg-slate-950");
+        c.classList.remove("scale-105", "z-20", "shadow-2xl", "ring-2", "ring-blue-500", "bg-blue-50");
+        c.classList.add("bg-white");
         const content = c.querySelector(".expandable-content");
         const indicator = c.querySelector(".toggle-indicator");
         if (content) content.classList.add("hidden");
@@ -153,8 +153,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (!isAlreadyActive) {
-        card.classList.remove("bg-slate-950");
-        card.classList.add("scale-105", "z-20", "shadow-2xl", "ring-2", "ring-blue-500", "bg-slate-900");
+        card.classList.remove("bg-white");
+        card.classList.add("scale-105", "z-20", "shadow-2xl", "ring-2", "ring-blue-500", "bg-blue-50");
         const content = card.querySelector(".expandable-content");
         const indicator = card.querySelector(".toggle-indicator");
         if (content) content.classList.remove("hidden");
