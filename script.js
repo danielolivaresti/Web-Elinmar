@@ -64,18 +64,76 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 3. Formulario de Envío de CV
+  // 3. Formulario de Envío de CV (envío real vía FormSubmit, con archivo adjunto)
+  // FormSubmit no acepta archivos por AJAX: se envía de forma normal y vuelve a esta página con ?enviado=1
   const cvForm = document.getElementById("cv-form");
   const cvSuccess = document.getElementById("cv-success");
+  const MAX_CV_MB = 5;
 
-  if (cvForm && cvSuccess) {
+  if (cvForm) {
+    const nextField = cvForm.querySelector('input[name="_next"]');
+    if (nextField && location.protocol.startsWith("http")) {
+      nextField.value = location.origin + location.pathname + "?enviado=1";
+    } else if (nextField) {
+      nextField.remove(); // abierto como archivo local: FormSubmit mostrará su propia página de gracias
+    }
+
     cvForm.addEventListener("submit", (e) => {
-      e.preventDefault();
+      const file = cvForm.querySelector('input[type="file"]');
+      if (file && file.files[0] && file.files[0].size > MAX_CV_MB * 1024 * 1024) {
+        e.preventDefault();
+        alert(`El archivo supera los ${MAX_CV_MB} MB. Por favor adjunta una versión más liviana (PDF recomendado).`);
+        return;
+      }
+      const btn = cvForm.querySelector('button[type="submit"]');
+      if (btn) { btn.disabled = true; btn.textContent = "Enviando..."; }
+    });
+
+    if (cvSuccess && new URLSearchParams(location.search).get("enviado") === "1") {
       cvSuccess.classList.remove("hidden");
-      cvForm.reset();
-      setTimeout(() => {
-        cvSuccess.classList.add("hidden");
-      }, 7000);
+      cvSuccess.scrollIntoView({ behavior: "smooth", block: "center" });
+      history.replaceState(null, "", location.pathname);
+    }
+  }
+
+  // 3b. Formulario de Cotización (envío real vía FormSubmit AJAX, sin salir de la página)
+  const quoteForm = document.getElementById("quote-form");
+  const quoteSuccess = document.getElementById("quote-success");
+  const quoteError = document.getElementById("quote-error");
+
+  if (quoteForm) {
+    quoteForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = quoteForm.querySelector('button[type="submit"]');
+      const btnText = btn ? btn.textContent : "";
+      if (btn) { btn.disabled = true; btn.textContent = "Enviando..."; }
+      if (quoteError) quoteError.classList.add("hidden");
+
+      try {
+        const ajaxUrl = quoteForm.action.replace("formsubmit.co/", "formsubmit.co/ajax/");
+        const res = await fetch(ajaxUrl, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(quoteForm)
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.success === false || data.success === "false") {
+          throw new Error(data.message || "Error " + res.status);
+        }
+        quoteForm.reset();
+        if (quoteSuccess) {
+          quoteSuccess.classList.remove("hidden");
+          setTimeout(() => quoteSuccess.classList.add("hidden"), 10000);
+        }
+      } catch (err) {
+        console.error("Error al enviar cotización:", err);
+        if (quoteError) {
+          quoteError.textContent = "No pudimos enviar tu solicitud. Inténtalo nuevamente o escríbenos directamente a daniel.olivares@elinmar.cl.";
+          quoteError.classList.remove("hidden");
+        }
+      } finally {
+        if (btn) { btn.disabled = false; btn.textContent = btnText; }
+      }
     });
   }
 
@@ -123,12 +181,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Respuestas del asistente por palabras clave (sin tildes y en minúsculas)
+  const CHAT_KB = [
+    { k: ["precio", "valor", "cuesta", "costo", "cuanto sale", "cuanto vale", "tarifa", "cotiz", "presupuesto"], r: "Cada proyecto se cotiza según capacidad, ubicación y requerimientos. Completa el formulario y te enviamos una propuesta técnica y comercial.", link: "cotizar.html", label: "Solicitar cotización" },
+    { k: ["planta", "jema", "jmwc60", "aguas negras", "tratamiento", "vapor"], r: "Fabricamos la planta de tratamiento de aguas negras Jema JMWC60 de 50 L/h: sistema estanco, vapor limpio, estanque triturador previo y monitoreo desde la oficina.", link: "planta.html", label: "Ver planta JMWC60" },
+    { k: ["mantencion", "mantenciones", "reparacion", "falla", "soporte"], r: "Realizamos mantenciones preventivas y correctivas en terreno, incluidos centros en alta mar.", link: "servicios.html", label: "Ver servicios" },
+    { k: ["ponton", "pontones", "sala tecnica", "electromecanic", "centro de cultivo", "salmon"], r: "Fabricamos, montamos y mantenemos equipos y salas técnicas para pontones habitacionales de centros de cultivo.", link: "servicios.html", label: "Ver servicios" },
+    { k: ["taller", "acero", "inoxidable", "aisi", "316", "maestranza", "soldadura"], r: "Contamos con maestranza propia en Chonchi, especializada en acero inoxidable AISI 316L y con pruebas hidráulicas en taller.", link: "taller.html", label: "Ver taller" },
+    { k: ["trabajo", "trabajar", "empleo", "cv", "curriculum", "postular", "postulacion", "vacante"], r: "Recibimos currículums para áreas técnicas, operativas y administrativas en Chonchi.", link: "trabaja.html", label: "Enviar mi CV" },
+    { k: ["telefono", "celular", "whatsapp", "llamar", "correo", "email", "mail", "contacto", "hablar"], r: "En nuestro directorio encontrarás el correo y teléfono de cada encargado.", link: "equipo.html", label: "Ver directorio" },
+    { k: ["cobertura", "zona", "region", "aysen", "palena", "los lagos", "llegan", "viajan"], r: "Atendemos Chiloé, el resto de la Región de Los Lagos (incluida Palena) y la Región de Aysén. Otras zonas, a consultar.", link: "cotizar.html", label: "Consultar mi zona" },
+    { k: ["ubicacion", "donde", "direccion", "chonchi", "oficina"], r: "Estamos en Chonchi, Chiloé, donde se encuentran nuestra oficina y taller.", link: "nosotros.html", label: "Conocer Elinmar" },
+    { k: ["flamy", "mascota"], r: "¡Soy Flamy, el supervisor oficial de Elinmar! Estoy aquí para orientarte por el sitio." },
+    { k: ["gracias", "chao", "adios", "listo"], r: "¡Con gusto! Si necesitas algo más, aquí estaré." },
+    { k: ["hola", "buenas", "buenos dias", "buenas tardes"], r: "¡Hola! Puedo orientarte sobre la planta Jema JMWC60, servicios en pontones, nuestro taller, cotizaciones o postulaciones." }
+  ];
+  const CHAT_FALLBACK = { r: "No estoy seguro de haber entendido. Puedes pedir una cotización o escribir directamente a nuestro equipo.", link: "cotizar.html", label: "Solicitar cotización", link2: "equipo.html", label2: "Ver directorio" };
+
+  const normalize = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+  const findAnswer = (text) => {
+    const t = normalize(text);
+    return CHAT_KB.find(entry => entry.k.some(word => t.includes(word))) || CHAT_FALLBACK;
+  };
+  const chatLink = (href, label) => {
+    const a = document.createElement("a");
+    a.href = href;
+    a.textContent = label + " ➔";
+    a.className = "inline-block mt-2 mr-2 text-sky-400 font-bold hover:text-sky-300";
+    return a;
+  };
+
   if (chatSendBtn && chatInput && chatMessages) {
     const handleSend = () => {
       const text = chatInput.value.trim();
       if (!text) return;
 
-      // Mensaje usuario
+      // Mensaje usuario (textContent: nunca se interpreta como HTML)
       const userBubble = document.createElement("div");
       userBubble.className = "bg-blue-600 text-white p-3 rounded-2xl max-w-[85%] ml-auto text-right";
       userBubble.textContent = text;
@@ -136,14 +224,19 @@ document.addEventListener("DOMContentLoaded", () => {
       chatInput.value = "";
       chatMessages.scrollTop = chatMessages.scrollHeight;
 
-      // Respuesta simulada Asistente Elinmar
+      // Respuesta del asistente según palabras clave
+      const answer = findAnswer(text);
       setTimeout(() => {
         const botBubble = document.createElement("div");
         botBubble.className = "bg-slate-900 p-3 rounded-2xl border border-slate-800 max-w-[85%] text-slate-300";
-        botBubble.innerHTML = `¡Gracias por tu mensaje! Un especialista de <strong>Elinmar Ltda.</strong> (Chonchi) se pondrá en contacto contigo pronto respecto a: <em>"${text}"</em>.`;
+        const p = document.createElement("p");
+        p.textContent = answer.r;
+        botBubble.appendChild(p);
+        if (answer.link) botBubble.appendChild(chatLink(answer.link, answer.label));
+        if (answer.link2) botBubble.appendChild(chatLink(answer.link2, answer.label2));
         chatMessages.appendChild(botBubble);
         chatMessages.scrollTop = chatMessages.scrollHeight;
-      }, 1000);
+      }, 600);
     };
 
     chatSendBtn.addEventListener("click", handleSend);
