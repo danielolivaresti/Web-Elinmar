@@ -84,16 +84,58 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
         
         <div class="lg:col-span-6 bg-slate-100 p-4 rounded-3xl border border-slate-300 shadow-xl">
-          <div class="relative rounded-2xl overflow-hidden border border-slate-300 bg-white shadow-md">
-            <img 
-              src="images/maquina-acero-inoxidable.webp" 
-              alt="Planta de Tratamiento Marca Jema Modelo JMWC60" 
-              class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
-            >
-            <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-xl border border-slate-200 shadow-lg">
-              <span class="text-xs font-bold text-blue-600 uppercase tracking-widest block">Modelo JMWC60 · Marca Jema</span>
-              <p class="text-xs text-slate-700 mt-0.5">Construcción íntegra en acero inoxidable AISI 316L, tableros de control y certificación legal para pontones en la zona austral.</p>
-            </div>
+          <!-- Efecto blueprint: el plano se dibuja y luego aparece la foto (estilos en estilos.css, lógica en script.js) -->
+          <div class="bp-stage border border-slate-300">
+            <img class="bp-photo" src="images/maquina-acero-inoxidable.webp" alt="Planta de Tratamiento Marca Jema Modelo JMWC60">
+            <div class="bp-scan" aria-hidden="true"></div>
+            <svg class="bp-svg" viewBox="0 0 600 400" aria-hidden="true">
+              <!-- piso -->
+              <path class="bp-line bp-thin" pathLength="1" style="--d:0s" d="M30 330 H570"/>
+              <path class="bp-line bp-dash" pathLength="1" style="--d:.1s" d="M30 336 H570" stroke-dasharray="1" />
+    
+              <!-- estanque principal -->
+              <path class="bp-line" pathLength="1" style="--d:.3s" d="M220 330 V170 Q220 150 240 150 H450 Q470 150 470 170 V330"/>
+              <path class="bp-line bp-thin" pathLength="1" style="--d:.6s" d="M220 180 H470 M220 300 H470"/>
+              <path class="bp-line" pathLength="1" style="--d:.8s" d="M300 300 V220 H390 V300"/>
+              <path class="bp-line bp-thin" pathLength="1" style="--d:1s" d="M310 230 H380 V290 H310 Z"/>
+              <path class="bp-line bp-thin" pathLength="1" style="--d:1.1s" d="M240 330 V342 M450 330 V342"/>
+    
+              <!-- cañerías y salida de vapor -->
+              <path class="bp-line" pathLength="1" style="--d:1.2s" d="M260 150 V100 Q260 90 270 90 H340 Q350 90 350 80 V40"/>
+              <path class="bp-line" pathLength="1" style="--d:1.4s" d="M420 150 V70 Q420 60 410 60 H380"/>
+              <path class="bp-line bp-thin" pathLength="1" style="--d:1.6s" d="M342 40 H358 M372 54 V66"/>
+              <path class="bp-line bp-dash" pathLength="1" style="--d:2s" d="M350 34 Q342 24 350 14 Q358 4 350 -6"/>
+    
+              <!-- tablero de control -->
+              <path class="bp-line" pathLength="1" style="--d:1.5s" d="M60 140 H150 V260 H60 Z"/>
+              <path class="bp-line bp-thin" pathLength="1" style="--d:1.8s" d="M72 155 H138 V190 H72 Z"/>
+              <path class="bp-line bp-thin" pathLength="1" style="--d:1.9s" d="M85 215 a6 6 0 1 0 0.1 0 M105 215 a6 6 0 1 0 0.1 0 M125 215 a6 6 0 1 0 0.1 0"/>
+              <path class="bp-line" pathLength="1" style="--d:2s" d="M150 200 H220 M150 220 Q185 220 185 245 V280 Q185 290 195 290 H220"/>
+              <path class="bp-line bp-thin" pathLength="1" style="--d:2.1s" d="M105 260 V330"/>
+    
+              <!-- cotas y líneas de referencia -->
+              <path class="bp-line bp-dash" pathLength="1" style="--d:2.3s" d="M220 360 H470 M220 354 V366 M470 354 V366"/>
+              <path class="bp-line bp-dash" pathLength="1" style="--d:2.4s" d="M495 150 V330 M489 150 H501 M489 330 H501"/>
+              <path class="bp-line bp-thin" pathLength="1" style="--d:2.5s" d="M150 150 L185 115 H215 M420 90 L470 90 H520 M150 250 L40 290 H20"/>
+    
+              <!-- cajetín -->
+              <path class="bp-line bp-thin" pathLength="1" style="--d:2.6s" d="M400 372 H585 V395 H400 Z M470 372 V395"/>
+    
+              <!-- etiquetas -->
+              <text class="bp-text" x="190" y="110" style="--d:2.7s">HMI / PLC</text>
+              <text class="bp-text" x="475" y="84" style="--d:2.8s">SALIDA VAPOR</text>
+              <text class="bp-text" x="300" y="200" style="--d:2.9s">ESTANQUE</text>
+              <text class="bp-text" x="22" y="284" style="--d:3s">TABLERO</text>
+              <text class="bp-text" x="306" y="319" style="--d:3.1s">AISI 316L</text>
+              <text class="bp-text" x="232" y="170" style="--d:3.1s">50 L/h</text>
+              <text class="bp-text big" x="406" y="389" style="--d:3.2s">JMWC60</text>
+              <text class="bp-text" x="478" y="388" style="--d:3.3s">ELINMAR LTDA.</text>
+            </svg>
+            <button type="button" class="bp-replay" aria-label="Repetir animación del plano">↻ Ver plano</button>
+          </div>
+          <div class="mt-4 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-widest block">Modelo JMWC60 · Marca Jema</span>
+            <p class="text-xs text-slate-700 mt-0.5">Construcción íntegra en acero inoxidable AISI 316L, tableros de control y certificación legal para pontones en la zona austral.</p>
           </div>
         </div>
 

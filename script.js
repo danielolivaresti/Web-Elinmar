@@ -328,4 +328,27 @@ document.addEventListener("DOMContentLoaded", () => {
       }, SLIDE_MS);
     });
   }
+  // 9. Efecto Blueprint: dibuja el plano y revela la foto al aparecer en pantalla
+  const bpStages = document.querySelectorAll(".bp-stage");
+  const bpReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  bpStages.forEach(stage => {
+    const DRAW_MS = 4200, REVEAL_MS = 1700;
+    let timers = [];
+    const play = () => {
+      timers.forEach(clearTimeout);
+      stage.classList.remove("is-drawing", "is-revealing", "is-done");
+      void stage.offsetWidth; // reinicia las animaciones CSS
+      stage.classList.add("is-drawing");
+      timers = [
+        setTimeout(() => stage.classList.add("is-revealing"), DRAW_MS),
+        setTimeout(() => { stage.classList.remove("is-drawing", "is-revealing"); stage.classList.add("is-done"); }, DRAW_MS + REVEAL_MS)
+      ];
+    };
+    if (bpReduce || !("IntersectionObserver" in window)) { stage.classList.add("is-done"); return; }
+    new IntersectionObserver((entries, obs) => {
+      if (entries[0].isIntersecting) { play(); obs.disconnect(); }
+    }, { threshold: 0.4 }).observe(stage);
+    const replay = stage.querySelector(".bp-replay");
+    if (replay) replay.addEventListener("click", play);
+  });
 });

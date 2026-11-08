@@ -198,3 +198,65 @@ header nav {
 .nav-indicator.is-sliding {
   transition: left 0.45s cubic-bezier(0.65, 0, 0.35, 1), width 0.45s cubic-bezier(0.65, 0, 0.35, 1);
 }
+
+/* ==========================================================================
+   EFECTO BLUEPRINT: el plano se dibuja y luego se revela la foto (planta.html)
+   ========================================================================== */
+.bp-stage {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #0b2a5b;
+  background-image:
+    linear-gradient(rgba(147, 197, 253, .22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .22) 1px, transparent 1px),
+    linear-gradient(rgba(147, 197, 253, .08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .08) 1px, transparent 1px);
+  background-size: 60px 60px, 60px 60px, 12px 12px, 12px 12px;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, .45);
+}
+.bp-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.bp-line {
+  fill: none; stroke: #e0f2fe; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+  filter: drop-shadow(0 0 3px rgba(125, 211, 252, .55));
+}
+.bp-thin { stroke-width: .9; stroke: #93c5fd; }
+.bp-dash { stroke-width: .9; stroke: #7dd3fc; }
+.bp-text { fill: #bae6fd; font: 600 12.5px ui-monospace, 'Courier New', monospace; letter-spacing: .08em; opacity: 0; }
+.bp-text.big { font-size: 16px; font-weight: 700; fill: #f0f9ff; }
+
+.bp-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; clip-path: inset(0 100% 0 0); }
+.bp-scan {
+  position: absolute; top: 0; bottom: 0; left: 0; width: 3px; opacity: 0; pointer-events: none;
+  background: #7dd3fc; box-shadow: 0 0 18px 4px rgba(56, 189, 248, .8);
+}
+
+.bp-stage.is-drawing .bp-line { animation: bpDraw 1.4s cubic-bezier(.65, 0, .35, 1) forwards; animation-delay: var(--d, 0s); }
+.bp-stage.is-drawing .bp-text { animation: bpFade .6s ease forwards; animation-delay: var(--d, 0s); }
+.bp-stage.is-revealing .bp-photo { animation: bpReveal 1.6s cubic-bezier(.65, 0, .35, 1) forwards; }
+.bp-stage.is-revealing .bp-scan { animation: bpScan 1.6s cubic-bezier(.65, 0, .35, 1) forwards; }
+.bp-stage.is-revealing .bp-svg { animation: bpFadeOut 1.2s ease .5s forwards; }
+/* Estado final permanente (tras la animación o sin JS) */
+.bp-stage.is-done .bp-photo { clip-path: inset(0 0 0 0); }
+.bp-stage.is-done .bp-svg { opacity: 0; }
+
+@keyframes bpDraw { to { stroke-dashoffset: 0; } }
+@keyframes bpFade { to { opacity: 1; } }
+@keyframes bpFadeOut { to { opacity: 0; } }
+@keyframes bpReveal { to { clip-path: inset(0 0 0 0); } }
+@keyframes bpScan { 0% { left: 0; opacity: 1; } 95% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
+
+.bp-replay {
+  position: absolute; top: .75rem; right: .75rem; z-index: 5;
+  padding: .4rem .75rem; border-radius: .6rem; font-size: 11px; font-weight: 700;
+  color: #0b2a5b; background: rgba(255, 255, 255, .9); border: 1px solid rgba(148, 163, 184, .6);
+  opacity: 0; cursor: pointer;
+}
+.bp-stage:hover .bp-replay, .bp-replay:focus-visible { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bp-stage .bp-photo { clip-path: none !important; animation: none !important; }
+  .bp-stage .bp-svg, .bp-stage .bp-scan, .bp-replay { display: none; }
+}
