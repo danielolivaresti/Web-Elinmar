@@ -270,10 +270,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const step = btn.getAttribute("data-step");
 
         processBtns.forEach(b => {
-          b.className = "process-step-btn w-full text-left p-5 rounded-2xl border transition-all duration-300 bg-slate-50 border-slate-200 hover:border-slate-300 group cursor-pointer";
+          b.classList.remove("is-active");
+          b.setAttribute("aria-pressed", "false");
         });
-
-        btn.className = "process-step-btn w-full text-left p-5 rounded-2xl border transition-all duration-300 bg-blue-50 border-blue-500 shadow-md group cursor-pointer";
+        btn.classList.add("is-active");
+        btn.setAttribute("aria-pressed", "true");
 
         animSlides.forEach(slide => {
           if (slide.getAttribute("data-content") === step) {

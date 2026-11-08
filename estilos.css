@@ -300,3 +300,26 @@ header nav {
   .bp-diagram .bp-fill { transform: none; animation: none !important; }
   .bp-diagram .bp-svg { display: block; }
 }
+
+/* Título del paso dentro del plano */
+.bp-title { fill: #f0f9ff; font: 700 14px ui-monospace, 'Courier New', monospace; letter-spacing: .06em; opacity: 0; }
+.bp-diagram.is-drawing .bp-title { animation: bpFade .5s ease forwards; }
+@media (prefers-reduced-motion: reduce) { .bp-diagram .bp-title { opacity: 1; animation: none !important; } }
+
+/* Tarjetas de pasos: inactivas en gris, la activa claramente marcada en azul */
+.process-step-btn { background: #f8fafc; border-color: #e2e8f0; border-left-width: 1px; }
+.process-step-btn:hover { border-color: #93c5fd; background: #fff; }
+.process-step-btn .step-label { color: #94a3b8; }
+.process-step-btn .step-title { color: #475569; }
+.process-step-btn .step-desc { color: #64748b; }
+.process-step-btn .step-dot { display: none; }
+.process-step-btn.is-active {
+  background: #eff6ff; border-color: #2563eb; border-left-width: 5px;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, .15), 0 12px 24px -10px rgba(37, 99, 235, .45);
+  transform: translateX(6px);
+}
+.process-step-btn.is-active .step-label { color: #2563eb; }
+.process-step-btn.is-active .step-title { color: #0f172a; }
+.process-step-btn.is-active .step-desc { color: #334155; }
+.process-step-btn.is-active .step-dot { display: inline-block; }
+@media (max-width: 1023px) { .process-step-btn.is-active { transform: none; } }
