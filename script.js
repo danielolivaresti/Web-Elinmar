@@ -369,3 +369,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (replay) replay.addEventListener("click", play);
   });
 });
+
+// Aparición al hacer scroll: cada bloque [data-reveal] entra una sola vez; las tarjetas de una misma fila en cascada
+(() => {
+  const items = document.querySelectorAll("[data-reveal]");
+  if (!items.length || !("IntersectionObserver" in window)) return;
+  document.documentElement.classList.add("js-reveal");
+  const siblingsIndex = (el) => [...el.parentElement.children].filter((c) => c.hasAttribute("data-reveal")).indexOf(el);
+  items.forEach((el) => { const i = siblingsIndex(el); if (i > 0) el.style.setProperty("--reveal-delay", `${Math.min(i, 5) * 60}ms`); });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); } });
+  }, { rootMargin: "0px 0px -80px 0px" });
+  items.forEach((el) => io.observe(el));
+})();

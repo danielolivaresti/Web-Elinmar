@@ -3,6 +3,8 @@
    ========================================================================== */
 
 :root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --elinmar-navy: #010a24;
   --elinmar-dark: #03153d;
   --elinmar-blue: #071e5c;
@@ -24,7 +26,7 @@ body {
 
 /* Transiciones fluidas */
 a, button {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
 img {
@@ -323,3 +325,62 @@ header nav {
 .process-step-btn.is-active .step-desc { color: #334155; }
 .process-step-btn.is-active .step-dot { display: inline-block; }
 @media (max-width: 1023px) { .process-step-btn.is-active { transform: none; } }
+
+/* ==========================================================================
+   ANIMACIONES PRO (criterio Emil Kowalski): transform + opacity, ease-out fuerte,
+   hover solo con mouse, todo se calma con prefers-reduced-motion
+   ========================================================================== */
+
+/* Botones: se "hunden" al presionar */
+.btn-press { transition: color .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform 160ms var(--ease-out); }
+.btn-press:active { transform: scale(0.97); }
+
+/* Hero: entra una sola vez al cargar, en cascada */
+@keyframes heroIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes heroCardIn { from { opacity: 0; transform: translateY(18px) scale(0.96); } to { opacity: 1; transform: none; } }
+.hero-enter > * { animation: heroIn 700ms var(--ease-out) both; }
+.hero-enter > :nth-child(2) { animation-delay: 70ms; }
+.hero-enter > :nth-child(3) { animation-delay: 140ms; }
+.hero-enter > :nth-child(4) { animation-delay: 210ms; }
+.hero-enter--card > * { animation: heroCardIn 900ms var(--ease-out) 260ms both; }
+
+/* Tarjetas de servicio: suben 4px, la foto hace zoom dentro de su marco, la flecha avanza */
+.card-lift { transition: transform 250ms var(--ease-out), box-shadow 250ms ease, border-color 200ms ease; }
+.card-lift__img { transition: transform 600ms var(--ease-out); }
+.card-lift__arrow { transition: transform 200ms var(--ease-out); }
+.card-lift:active { transform: scale(0.99); }
+@media (hover: hover) and (pointer: fine) {
+  .card-lift:hover { transform: translateY(-4px); box-shadow: 0 18px 36px -18px rgba(15, 23, 42, .35); border-color: #60a5fa; }
+  .card-lift:hover .card-lift__img { transform: scale(1.04); }
+  .card-lift:hover .card-lift__arrow { transform: translateX(4px); }
+}
+
+/* Aparición al hacer scroll (una sola vez). Solo se oculta si el JS está activo. */
+.js-reveal [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out); transition-delay: var(--reveal-delay, 0ms); }
+.js-reveal [data-reveal].is-visible { opacity: 1; transform: none; }
+
+/* Cómo trabajamos: la línea se dibuja y los pasos aparecen en orden */
+.js-reveal .steps__line { transform: scaleX(0); transform-origin: left center; transition: transform 1100ms var(--ease-in-out) 150ms; }
+.js-reveal .steps.is-visible .steps__line { transform: scaleX(1); }
+.js-reveal .steps__item > :first-child { opacity: 0; transform: scale(0.9); transition: opacity 400ms var(--ease-out), transform 500ms var(--ease-out); }
+.js-reveal .steps.is-visible .steps__item > :first-child { opacity: 1; transform: none; }
+.js-reveal .steps.is-visible .steps__item:nth-of-type(2) > :first-child { transition-delay: 150ms; }
+.js-reveal .steps.is-visible .steps__item:nth-of-type(3) > :first-child { transition-delay: 450ms; }
+.js-reveal .steps.is-visible .steps__item:nth-of-type(4) > :first-child { transition-delay: 750ms; }
+.js-reveal .steps.is-visible .steps__item:nth-of-type(5) > :first-child { transition-delay: 1050ms; }
+
+/* Preguntas frecuentes: la respuesta entra suave al abrir */
+@keyframes faqIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.faq-list details[open] > p { animation: faqIn 250ms var(--ease-out); }
+.faq-list summary span { transition: transform 200ms var(--ease-out); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter > *, .hero-enter--card > * { animation: heroFade 300ms ease both; }
+  .js-reveal [data-reveal] { transform: none; transition: opacity 300ms ease; }
+  .js-reveal .steps__line, .js-reveal .steps__item > :first-child { transform: none; transition: opacity 300ms ease; }
+  .card-lift, .card-lift__img, .card-lift__arrow, .btn-press { transition: color .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease; }
+  .card-lift:hover, .card-lift:hover .card-lift__img, .card-lift:hover .card-lift__arrow, .btn-press:active { transform: none; }
+  .faq-list details[open] > p { animation: none; }
+  .floating-mascot { animation: none; }
+}
+@keyframes heroFade { from { opacity: 0; } to { opacity: 1; } }
