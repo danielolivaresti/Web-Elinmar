@@ -265,8 +265,27 @@
               
               <!-- Pantalla Paso 1 -->
               <div class="anim-slide space-y-4" data-content="1">
-                <div class="w-20 h-20 mx-auto rounded-2xl bg-blue-100 border border-blue-300 flex items-center justify-center text-3xl animate-bounce">
-                  💧
+                <div class="bp-stage bp-diagram border border-slate-300">
+                  <svg class="bp-svg" viewBox="0 0 600 340" role="img" aria-label="Paso 1: trituración previa y llenado del estanque">
+                    <path class="bp-line bp-thin" pathLength="1" style="--d:0s" d="M20 318 H580"/>
+                    <path class="bp-line " pathLength="1" style="--d:0.2s" d="M20 120 H125 V150"/>
+                    <path class="bp-line " pathLength="1" style="--d:0.4s" d="M60 160 Q60 150 70 150 H180 Q190 150 190 160 V280 Q190 290 180 290 H70 Q60 290 60 280 Z"/>
+                    <path class="bp-line bp-thin" pathLength="1" style="--d:0.8s" d="M113 150 V128 H137 V150"/>
+                    <path class="bp-line bp-thin" pathLength="1" style="--d:0.9s" d="M125 150 V202"/>
+                    <g class="bp-spin"><path class="bp-line bp-thin" pathLength="1" style="--d:1s" d="M125 230 m-28 0 a28 28 0 1 0 56 0 a28 28 0 1 0 -56 0"/><path class="bp-line " pathLength="1" style="--d:1.1s" d="M125 204 V256 M99 230 H151 M107 212 L143 248 M143 212 L107 248"/></g>
+                    <path class="bp-line " pathLength="1" style="--d:0.6s" d="M300 120 Q300 100 320 100 H520 Q540 100 540 120 V280 Q540 290 530 290 H310 Q300 290 300 280 Z"/>
+                    <path class="bp-line " pathLength="1" style="--d:1.2s" d="M190 270 H240 Q250 270 250 260 V200 Q250 190 260 190 H300"/>
+                    <path class="bp-line bp-thin" pathLength="1" style="--d:1.4s" d="M220 270 m-10 0 a10 10 0 1 0 20 0 a10 10 0 1 0 -20 0"/>
+                    <rect class="bp-fill" x="302" y="150" width="236" height="138" style="--d:2.4s"/>
+                    <path class="bp-line bp-thin" pathLength="1" style="--d:3.2s" d="M302 150 H538"/>
+                    <path class="bp-flow water" style="--d:2.2s" d="M20 120 H125 V150"/>
+                    <path class="bp-flow water" style="--d:2.6s" d="M190 270 H240 Q250 270 250 260 V200 Q250 190 260 190 H300"/>
+                    <text class="bp-text " x="20" y="110" style="--d:2.2s">AGUAS NEGRAS</text>
+                    <text class="bp-text " x="78" y="310" style="--d:2.4s">TRITURADOR</text>
+                    <text class="bp-text " x="196" y="300" style="--d:2.5s">BOMBA</text>
+                    <text class="bp-text " x="340" y="90" style="--d:2.6s">ESTANQUE PRINCIPAL</text>
+                    <text class="bp-text big" x="362" y="228" style="--d:3.2s">100% LÍQUIDO</text>
+                  </svg>
                 </div>
                 <h4 class="text-lg font-black text-slate-900">Paso 1: Trituración Previa y Llenado Líquido</h4>
                 <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
@@ -280,8 +299,24 @@
 
               <!-- Pantalla Paso 2 -->
               <div class="anim-slide hidden space-y-4" data-content="2">
-                <div class="w-20 h-20 mx-auto rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center text-3xl animate-pulse">
-                  🔥
+                <div class="bp-stage bp-diagram border border-slate-300">
+                  <svg class="bp-svg" viewBox="0 0 600 340" role="img" aria-label="Paso 2: el quemador calienta el núcleo térmico">
+                    <path class="bp-line bp-thin" pathLength="1" style="--d:0s" d="M20 318 H580"/>
+                    <path class="bp-line " pathLength="1" style="--d:0.2s" d="M160 110 Q160 90 180 90 H500 Q520 90 520 110 V280 Q520 290 510 290 H170 Q160 290 160 280 Z"/>
+                    <path class="bp-line " pathLength="1" style="--d:0.4s" d="M60 175 H150 V245 H60 Z"/>
+                    <path class="bp-line bp-thin" pathLength="1" style="--d:0.8s" d="M90 210 m-14 0 a14 14 0 1 0 28 0 a14 14 0 1 0 -28 0"/>
+                    <path class="bp-line " pathLength="1" style="--d:0.6s" d="M150 190 H470 Q490 190 490 210 Q490 230 470 230 H150"/>
+                    <rect class="bp-fill" x="162" y="130" width="356" height="158" style="--d:1.4s"/>
+                    <path class="bp-line bp-thin" pathLength="1" style="--d:1.8s" d="M162 130 H518"/>
+                    <path class="bp-flame" style="--d:2s" d="M162 210 Q190 192 222 210 Q190 228 162 210 Z"/>
+                    <path class="bp-flow heat" style="--d:2.2s" d="M220 210 H470"/>
+                    <path class="bp-flow heat" style="--d:2.3s" d="M200 200 H460"/>
+                    <path class="bp-flow heat" style="--d:2.3s" d="M200 220 H460"/>
+                    <path class="bp-flow heat thin" style="--d:2.6s" d="M260 184 V164 M330 184 V164 M400 184 V164 M260 236 V256 M330 236 V256 M400 236 V256"/>
+                    <text class="bp-text " x="64" y="165" style="--d:2.3s">QUEMADOR</text>
+                    <text class="bp-text " x="275" y="118" style="--d:2.8s">CALOR INDIRECTO</text>
+                    <text class="bp-text big" x="258" y="278" style="--d:3s">NÚCLEO TÉRMICO</text>
+                  </svg>
                 </div>
                 <h4 class="text-lg font-black text-slate-900">Paso 2: Generación Térmica en el Núcleo</h4>
                 <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
@@ -295,8 +330,40 @@
 
               <!-- Pantalla Paso 3 -->
               <div class="anim-slide hidden space-y-4" data-content="3">
-                <div class="w-20 h-20 mx-auto rounded-2xl bg-sky-100 border border-sky-300 flex items-center justify-center text-3xl animate-spin">
-                  🌀
+                <div class="bp-stage bp-diagram border border-slate-300">
+                  <svg class="bp-svg" viewBox="0 0 600 340" role="img" aria-label="Paso 3: ebullición y separación de lodos">
+                    <path class="bp-line bp-thin" pathLength="1" style="--d:0s" d="M20 318 H580"/>
+                    <path class="bp-line " pathLength="1" style="--d:0.2s" d="M160 110 Q160 90 180 90 H500 Q520 90 520 110 V280 Q520 290 510 290 H170 Q160 290 160 280 Z"/>
+                    <path class="bp-line bp-thin" pathLength="1" style="--d:0.4s" d="M150 190 H470 Q490 190 490 210 Q490 230 470 230 H150"/>
+                    <path class="bp-line bp-thin" pathLength="1" style="--d:0.5s" d="M60 175 H150 V245 H60 Z"/>
+                    <rect class="bp-fill" x="162" y="130" width="356" height="158" style="--d:1s"/>
+                    <path class="bp-line bp-thin" pathLength="1" style="--d:1.6s" d="M162 130 Q182 124 202 130 T242 130 T282 130 T322 130 T362 130 T402 130 T442 130 T482 130 T518 130"/>
+                    <path class="bp-line bp-lodo" pathLength="1" style="--d:1.8s" d="M162 276 H518"/>
+                    <path class="bp-line bp-lodo" pathLength="1" style="--d:2s" d="M168 288 L180 276 M188 288 L200 276 M208 288 L220 276 M228 288 L240 276 M248 288 L260 276 M268 288 L280 276 M288 288 L300 276 M308 288 L320 276 M328 288 L340 276 M348 288 L360 276 M368 288 L380 276 M388 288 L400 276 M408 288 L420 276 M428 288 L440 276 M448 288 L460 276 M468 288 L480 276 M488 288 L500 276 M508 288 L520 276"/>
+                    <circle class="bp-bubble" cx="210" cy="240" r="3" style="--d:2.2s"/>
+                    <circle class="bp-bubble" cx="250" cy="182" r="4" style="--d:2.7s"/>
+                    <circle class="bp-bubble" cx="290" cy="240" r="5" style="--d:3.3000000000000003s"/>
+                    <circle class="bp-bubble" cx="330" cy="182" r="3" style="--d:2.5s"/>
+                    <circle class="bp-bubble" cx="370" cy="240" r="4" style="--d:3s"/>
+                    <circle class="bp-bubble" cx="410" cy="182" r="5" style="--d:3.6s"/>
+                    <circle class="bp-bubble" cx="450" cy="240" r="3" style="--d:2.8000000000000003s"/>
+                    <circle class="bp-bubble" cx="230" cy="182" r="4" style="--d:3.8000000000000003s"/>
+                    <circle class="bp-bubble" cx="350" cy="240" r="5" style="--d:4.1s"/>
+                    <circle class="bp-bubble" cx="430" cy="182" r="3" style="--d:3.4000000000000004s"/>
+                    <circle class="bp-settle" cx="200" cy="246" r="2.5" style="--d:2.4s"/>
+                    <circle class="bp-settle" cx="280" cy="246" r="2.5" style="--d:3.0999999999999996s"/>
+                    <circle class="bp-settle" cx="360" cy="246" r="2.5" style="--d:3.7s"/>
+                    <circle class="bp-settle" cx="440" cy="246" r="2.5" style="--d:2.8s"/>
+                    <circle class="bp-settle" cx="240" cy="246" r="2.5" style="--d:4.2s"/>
+                    <circle class="bp-settle" cx="400" cy="246" r="2.5" style="--d:3.5s"/>
+                    <path class="bp-flow steam" style="--d:2.4s" d="M220 124 Q214 116 220 108 Q226 100 220 94"/>
+                    <path class="bp-flow steam" style="--d:2.7s" d="M320 124 Q314 116 320 108 Q326 100 320 94"/>
+                    <path class="bp-flow steam" style="--d:3s" d="M400 124 Q394 116 400 108 Q406 100 400 94"/>
+                    <path class="bp-line bp-thin" pathLength="1" style="--d:2.6s" d="M110 282 H160"/>
+                    <text class="bp-text " x="440" y="112" style="--d:2.8s">VAPOR</text>
+                    <text class="bp-text " x="196" y="168" style="--d:3s">EBULLICIÓN</text>
+                    <text class="bp-text big" x="46" y="298" style="--d:2.8s">LODOS</text>
+                  </svg>
                 </div>
                 <h4 class="text-lg font-black text-slate-900">Paso 3: Ebullición y Separación de Lodos</h4>
                 <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
@@ -310,8 +377,25 @@
 
               <!-- Pantalla Paso 4 -->
               <div class="anim-slide hidden space-y-4" data-content="4">
-                <div class="w-20 h-20 mx-auto rounded-2xl bg-emerald-100 border border-emerald-300 flex items-center justify-center text-3xl animate-bounce">
-                  ♨️
+                <div class="bp-stage bp-diagram border border-slate-300">
+                  <svg class="bp-svg" viewBox="0 0 600 340" role="img" aria-label="Paso 4: evacuación del vapor limpio por la chimenea">
+                    <path class="bp-line bp-thin" pathLength="1" style="--d:0s" d="M20 318 H580"/>
+                    <path class="bp-line bp-dash" pathLength="1" style="--d:0.2s" d="M480 12 V318"/>
+                    <path class="bp-line " pathLength="1" style="--d:0.4s" d="M160 165 Q160 150 175 150 H445 Q460 150 460 165 V290 Q460 300 450 300 H170 Q160 300 160 290 Z"/>
+                    <rect class="bp-fill" x="162" y="185" width="296" height="113" style="--d:1s"/>
+                    <path class="bp-line bp-thin" pathLength="1" style="--d:1.4s" d="M162 185 H458"/>
+                    <path class="bp-line " pathLength="1" style="--d:0.8s" d="M370 150 V70 Q370 40 400 40 H535"/>
+                    <path class="bp-line " pathLength="1" style="--d:1s" d="M390 150 V70 Q390 60 400 60 H535"/>
+                    <path class="bp-flow steam" style="--d:2.2s" d="M380 145 V70 Q380 50 400 50 H532"/>
+                    <circle class="bp-puff" cx="546" cy="56" r="10" style="--d:2.8s"/>
+                    <circle class="bp-puff" cx="546" cy="56" r="8" style="--d:3.6s"/>
+                    <circle class="bp-puff" cx="546" cy="56" r="12" style="--d:4.4s"/>
+                    <text class="bp-text " x="268" y="100" style="--d:2.4s">CHIMENEA</text>
+                    <text class="bp-text " x="492" y="100" style="--d:2.8s">VAPOR LIMPIO</text>
+                    <text class="bp-text " x="492" y="140" style="--d:2.6s">EXTERIOR</text>
+                    <text class="bp-text " x="404" y="140" style="--d:2.6s">INTERIOR</text>
+                    <text class="bp-text big" x="230" y="250" style="--d:2.4s">ESTANQUE</text>
+                  </svg>
                 </div>
                 <h4 class="text-lg font-black text-slate-900">Paso 4: Evacuación y Descarga de Vapor Limpio</h4>
                 <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">

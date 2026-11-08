@@ -245,6 +245,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Planos animados de los pasos: reinicia el dibujo cada vez que se muestra uno
+  const playDiagram = (stage) => {
+    if (!stage) return;
+    stage.classList.remove("is-drawing");
+    void stage.offsetWidth;
+    stage.classList.add("is-drawing");
+  };
+  const firstDiagram = document.querySelector('.anim-slide:not(.hidden) .bp-diagram');
+  if (firstDiagram) {
+    if (!("IntersectionObserver" in window)) playDiagram(firstDiagram);
+    else new IntersectionObserver((entries, obs) => {
+      if (entries[0].isIntersecting) { playDiagram(firstDiagram); obs.disconnect(); }
+    }, { threshold: 0.4 }).observe(firstDiagram);
+  }
+
   // 7. Animación Interactiva de 4 Pasos en Planta de Tratamiento
   const processBtns = document.querySelectorAll(".process-step-btn");
   const animSlides = document.querySelectorAll(".anim-slide");
@@ -255,14 +270,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const step = btn.getAttribute("data-step");
 
         processBtns.forEach(b => {
-          b.className = "process-step-btn w-full text-left p-5 rounded-2xl border transition-all duration-300 bg-slate-900/80 border-slate-800 hover:border-slate-700 group cursor-pointer";
+          b.className = "process-step-btn w-full text-left p-5 rounded-2xl border transition-all duration-300 bg-slate-50 border-slate-200 hover:border-slate-300 group cursor-pointer";
         });
 
-        btn.className = "process-step-btn w-full text-left p-5 rounded-2xl border transition-all duration-300 bg-blue-900/40 border-blue-500 shadow-xl group cursor-pointer";
+        btn.className = "process-step-btn w-full text-left p-5 rounded-2xl border transition-all duration-300 bg-blue-50 border-blue-500 shadow-md group cursor-pointer";
 
         animSlides.forEach(slide => {
           if (slide.getAttribute("data-content") === step) {
             slide.classList.remove("hidden");
+            playDiagram(slide.querySelector(".bp-diagram"));
           } else {
             slide.classList.add("hidden");
           }
@@ -329,7 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   // 9. Efecto Blueprint: dibuja el plano y revela la foto al aparecer en pantalla
-  const bpStages = document.querySelectorAll(".bp-stage");
+  const bpStages = document.querySelectorAll(".bp-stage:not(.bp-diagram)");
   const bpReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   bpStages.forEach(stage => {
     const DRAW_MS = 4200, REVEAL_MS = 1700;
